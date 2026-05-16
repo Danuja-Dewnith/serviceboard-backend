@@ -1,0 +1,7 @@
+# In your backend folder, create .gitignore
+echo "node_modules/
+.env
+.DS_Store
+*.log
+.env.local
+.env.production" > .gitignore
