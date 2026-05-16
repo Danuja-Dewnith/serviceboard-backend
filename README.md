@@ -165,7 +165,7 @@ curl -X POST http://localhost:5000/api/jobs \
 
 ## ⚙️ Environment Variables
 
-Create a `.env` file in the root of this directory:
+Create a `.env` file in the root of this directory. **Never commit this file to GitHub.**
 
 ```env
 # Server
@@ -173,18 +173,22 @@ PORT=5000
 NODE_ENV=development
 
 # Database
-MONGO_URI=mongodb+srv://danujadewnith_db_user:cF7Ez8NFcCasuZoC@cluster0.c6s84kt.mongodb.net/?appName=Cluster0
+MONGO_URI=mongodb+srv://<username>:<password>@cluster0.xxxxx.mongodb.net/serviceboard?retryWrites=true&w=majority
 
 # Auth
-JWT_SECRET=dd46e2ccec316abb7a11d99d53986d57809795712eb5bb98ea5b84b6d2f86dafc6953b9247f7aa64cf15b1480323efbbaad58fb6d36ba25d5d98182d783c4c97
+JWT_SECRET=your_long_random_secret_key_here
 
 # Email (optional — for notifications bonus feature)
 EMAIL_HOST=smtp.gmail.com
 EMAIL_PORT=587
-EMAIL_USER=mmr19720426@gmail.com
-EMAIL_PASS=utat xxsu icii wpjr
-EMAIL_FROM=mmr19720426@gmail.com
+EMAIL_USER=your_email@gmail.com
+EMAIL_PASS=your_gmail_app_password
+EMAIL_FROM=your_email@gmail.com
 ```
+
+> **Note:** For `EMAIL_PASS`, use a Gmail App Password (not your account password). Generate one at Google Account → Security → 2-Step Verification → App Passwords.
+
+> **Important:** Make sure `.env` is listed in your `.gitignore` so credentials are never pushed to GitHub.
 
 ---
 
@@ -206,12 +210,14 @@ cd serviceboard-backend
 npm install
 
 # 3. Add environment variables
-cp .env.example .env
-# Edit .env with your values
+# Create a .env file and fill in your values (see Environment Variables above)
 
-# 4. Start dev server
-npm run dev
+# 4. Start the server
+npm run dev      # development — auto-restarts with nodemon
+npm start        # production — runs node server.js directly
 ```
+
+> `npm run dev` uses `nodemon`, which is installed as a dev dependency via `npm install` — no global install needed.
 
 API runs at `http://localhost:5000`
 
@@ -230,22 +236,22 @@ Inserts 5–10 sample jobs into the database.
 1. Push this repository to GitHub (must be **public**)
 2. Go to [railway.app](https://railway.app) → New Project → Deploy from GitHub
 3. Select this repository
-4. Add all environment variables from `.env`
+4. Add all environment variables from `.env` in the Railway dashboard
 5. Click Deploy
 
 ---
 
 ## 🔗 Related
 
-- **Frontend Repository:** [serviceboard-frontend](https://github.com/Danuja-Dewnith/serviceboard-frontend.git)
+- **Frontend Repository:** [serviceboard-frontend](https://github.com/Danuja-Dewnith/serviceboard-frontend)
 
 ---
 
 ## 👨‍💻 Author
 
-**Your Name**
+**Danuja Dewnith**
 - Email: danujadewnith@gmail.com
-- GitHub: [@yourusername](https://github.com/Danuja-Dewnith)
+- GitHub: [@Danuja-Dewnith](https://github.com/Danuja-Dewnith)
 
 ---
 
